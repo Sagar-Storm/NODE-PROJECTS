@@ -33,5 +33,7 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
     res.send('<h1> About page </h1>');
 });
-const PORT = 3000;
-app.listen(PORT)
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log("server up running on " + PORT);
+})
