@@ -15,10 +15,6 @@ app.use( (req, res, next) => {
 });
 
 
-app.use( function(req, res, next) {
-    res.send('maintainance');
-    next();
-});
 app.get('/', (req, res) => {
     res.send({
         name: "sagar",
