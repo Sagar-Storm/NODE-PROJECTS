@@ -16,10 +16,7 @@ app.use( (req, res, next) => {
 
 
 app.get('/', (req, res) => {
-    res.send({
-        name: "sagar",
-        college: "UVCE",
-    });
+    res.send('<h1> I love you Vinay, why are you so awesome ? </h1>')
 });
 
 
