@@ -1,56 +1,29 @@
 <html>
-<head>
-    <title> chat app </title>
-</head>
-
-<body>
-    <p> Welcome to the chat app </p>
-
- <script src = "/socket.io/socket.io.js"> </script>
-   <label> Enter your name <input type = "text" id = "userID" > </label> <br> <br>
-  <label> Enter your message <input type = "text" id = "messageID" placeholder="" /> </label>
-  <input type = "submit" height = 20  id = "sendButtonID" value = "Send message" width = "25" ></br>
-
-    <div id = "messages" > 
-
+    <head>
+        <title> Join | ChatApp </title>
+        <link rel="stylesheet" href="/css/styles.css">
+        <meta name="viewport"  content="width=device-width, initial-scale=1, user-scalable=no">
+    </head>
+    
+    <body class="centered-form">
+        <div class="centerd-form__form">
+            <form action="/chat.html">
+        <div class="form-field">
+            <h3> Join a chat </h3>
         </div>
-
-<script> 
-        var socket = io();
-        socket.on('connect', function() {
-            console.log('connected from browser');
-             document.getElementById("sendButtonID").addEventListener("click", function () {
-
-                    var user = document.getElementById("userID").value;
-                    var texter = document.getElementById("messageID").value;
-                    if(user === "" && texter === "") {
-                        alert("hello, Enter your user name and message ");
-                    } else {
-                   
-                        document.getElementById("messageID").value = "";
-                        console.log("texter is ", texter);
-                        console.log('listend to click event');
-                        socket.emit('createMessage', {
-                        to: "Everyone",
-                        text: user + ": " + texter,
-                        });
-                    }
-             });
-        });
-                
-
-        socket.on('newMessage', function(message) {
-            console.log('new Message', message);
-            document.getElementById("messages").innerHTML += " <p> " + message.text + "</p>"
-        })
+        <div class="form-field">
+            <label> Display Name </label>
+            <input type="text"  name="name" autofocus/>
+        </div>
+        <div class="form-field">
+            <label> Room Name </label>
+            <input type="text"  name="room"/>
+        </div>
+        <div class="form-field">
+            <button> Join </button>
+        </div>
+        
+        </form>
         
 
-        socket.on('disconnect', function() {
-            console.log('disconnected from server');
-        })
-
-</script>
-
-</body>
-</html>
-
+        </div>
