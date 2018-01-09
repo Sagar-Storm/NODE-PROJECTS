@@ -26,13 +26,12 @@
                     if(user === "" && texter === "") {
                         alert("hello, Enter your user name and message ");
                     } else {
-                   
                         document.getElementById("messageID").value = "";
                         console.log("texter is ", texter);
-                        console.log('listend to click event');
+                        console.log('listened to click event');
                         socket.emit('createMessage', {
-                        to: "Everyone",
-                        text: user + ": " + texter,
+                            to: "Everyone",
+                            text: user + ": " + texter,
                         });
                     }
              });
